@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{8E97B086-B54C-4106-B0E8-945134841AEE}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{15D19593-E1BD-4786-966B-5ADE297C2FAF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -196,13 +196,29 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Задача потока данных"
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{48500B27-5DF0-4FFF-8DA7-6E5939F06364}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E93786C2-BA49-4B7E-A1A0-34FDC1BDDB8B}"
+          SQLTask:SqlStatementSource="use [P5_S_SSIS]&#xA;go&#xA;&#xA;insert into [dbo].[CSV_CAL_COPY]&#xA;select * from [dbo].[CSV_CAL]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load data from csv"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Задача потока данных"
       DTS:DTSID="{004DB766-6BAA-4029-851A-8FA07FEB7C6E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Задача потока данных"
+      DTS:ObjectName="Load data from csv"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -210,7 +226,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Задача потока данных\CSV_CAL"
+              refId="Package\Load data from csv\CSV_CAL"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Источник &quot;Неструктурированный файл&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;1"
               description="Источник &quot;Неструктурированный файл&quot;"
@@ -230,24 +246,24 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Задача потока данных\CSV_CAL.Connections[FlatFileConnection]"
+                  refId="Package\Load data from csv\CSV_CAL.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[CSV_CAL]"
                   connectionManagerRefId="Package.ConnectionManagers[CSV_CAL]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;]"
+                  refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;]"
                   name="Выход источника &quot;Неструктурированный файл&quot;">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR_MONTH]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR_MONTH]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YEAR_MONTH]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YEAR_MONTH]"
                       length="7"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR_MONTH]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR_MONTH]"
                       name="DATE_YEAR_MONTH"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -262,14 +278,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID]"
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_ID]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_ID]"
                       length="50"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID]"
                       name="DATE_ID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -284,14 +300,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID2]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID2]"
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_ID2]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_ID2]"
                       length="50"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID2]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID2]"
                       name="DATE_ID2"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -306,13 +322,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WORKDAY_FLAG]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WORKDAY_FLAG]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
                       length="1"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WORKDAY_FLAG]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WORKDAY_FLAG]"
                       name="DATE_WORKDAY_FLAG"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -327,14 +343,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DAY_NUM]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DAY_NUM]"
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_DAY_NUM]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_DAY_NUM]"
                       length="50"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DAY_NUM]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DAY_NUM]"
                       name="DATE_DAY_NUM"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -349,14 +365,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR]"
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YEAR]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YEAR]"
                       length="50"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR]"
                       name="DATE_YEAR"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -371,13 +387,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_MONTH_NAME]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_MONTH_NAME]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_MONTH_NAME]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_MONTH_NAME]"
                       length="5"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_MONTH_NAME]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_MONTH_NAME]"
                       name="DATE_MONTH_NAME"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -392,13 +408,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK_DAY_NAME]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK_DAY_NAME]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
                       length="2"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK_DAY_NAME]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK_DAY_NAME]"
                       name="DATE_WEEK_DAY_NAME"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -413,14 +429,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK]"
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WEEK]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WEEK]"
                       length="50"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK]"
                       name="DATE_WEEK"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -435,13 +451,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DEC]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DEC]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_DEC]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_DEC]"
                       length="2"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DEC]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DEC]"
                       name="DATE_DEC"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -456,13 +472,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_Q]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_Q]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_Q]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_Q]"
                       length="2"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_Q]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_Q]"
                       name="DATE_Q"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -477,13 +493,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_HY]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_HY]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_HY]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_HY]"
                       length="2"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_HY]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_HY]"
                       name="DATE_HY"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -498,13 +514,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YQ]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YQ]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YQ]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YQ]"
                       length="7"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YQ]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YQ]"
                       name="DATE_YQ"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -519,13 +535,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YW]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YW]"
                       dataType="wstr"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YW]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YW]"
                       length="7"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YW]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YW]"
                       name="DATE_YW"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -540,14 +556,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_M_COUNT]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_M_COUNT]"
                       codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Преобразование"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_M_COUNT]"
+                      externalMetadataColumnId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_M_COUNT]"
                       length="50"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_M_COUNT]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_M_COUNT]"
                       name="DATE_M_COUNT"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -565,97 +581,97 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YEAR_MONTH]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YEAR_MONTH]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_YEAR_MONTH" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_ID]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_ID]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_ID" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_ID2]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_ID2]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_ID2" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_WORKDAY_FLAG" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_DAY_NUM]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_DAY_NUM]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_DAY_NUM" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YEAR]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YEAR]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_YEAR" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_MONTH_NAME]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_MONTH_NAME]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_MONTH_NAME" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_WEEK_DAY_NAME" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WEEK]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_WEEK]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_WEEK" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_DEC]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_DEC]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_DEC" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_Q]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_Q]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_Q" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_HY]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_HY]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_HY" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YQ]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YQ]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_YQ" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YW]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_YW]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_YW" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_OTH]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_OTH]"
                       codePage="65001"
                       dataType="str"
                       length="50"
                       name="DATE_OTH" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_M_COUNT]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[DATE_M_COUNT]"
                       codePage="65001"
                       dataType="str"
                       length="50"
@@ -663,27 +679,27 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Задача потока данных\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;]"
+                  refId="Package\Load data from csv\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;]"
                   isErrorOut="true"
                   name="Вывод ошибок источника &quot;Неструктурированный файл&quot;">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
                       codePage="65001"
                       dataType="text"
                       description="Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
                       name="Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;" />
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Задача потока данных\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
+                      refId="Package\Load data from csv\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -692,7 +708,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;"
+              refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
               description="Назначение &quot;OLE DB&quot;"
@@ -749,7 +765,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Connections[OleDbConnection]"
+                  refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[SQLSERVER2019]"
                   connectionManagerRefId="Package.ConnectionManagers[SQLSERVER2019]"
                   description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
@@ -757,168 +773,168 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                  refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
                   errorOrTruncationOperation="Вставить"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Вход назначения &quot;OLE DB&quot;">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]"
                       cachedDataType="wstr"
                       cachedLength="7"
                       cachedName="DATE_YEAR_MONTH"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR_MONTH]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR_MONTH]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_ID]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_ID]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DATE_ID"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="DATE_WORKDAY_FLAG"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WORKDAY_FLAG]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WORKDAY_FLAG]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DATE_DAY_NUM"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DAY_NUM]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DAY_NUM]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YEAR]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YEAR]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DATE_YEAR"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]"
                       cachedDataType="wstr"
                       cachedLength="5"
                       cachedName="DATE_MONTH_NAME"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_MONTH_NAME]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_MONTH_NAME]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]"
                       cachedDataType="wstr"
                       cachedLength="2"
                       cachedName="DATE_WEEK_DAY_NAME"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK_DAY_NAME]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK_DAY_NAME]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WEEK]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WEEK]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DATE_WEEK"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_DEC]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_DEC]"
                       cachedDataType="wstr"
                       cachedLength="2"
                       cachedName="DATE_DEC"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DEC]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DEC]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_Q]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_Q]"
                       cachedDataType="wstr"
                       cachedLength="2"
                       cachedName="DATE_Q"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_Q]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_Q]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_HY]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_HY]"
                       cachedDataType="wstr"
                       cachedLength="2"
                       cachedName="DATE_HY"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_HY]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_HY]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YQ]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YQ]"
                       cachedDataType="wstr"
                       cachedLength="7"
                       cachedName="DATE_YQ"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YQ]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YQ]" />
                     <inputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YW]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YW]"
                       cachedDataType="wstr"
                       cachedLength="7"
                       cachedName="DATE_YW"
-                      externalMetadataColumnId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
-                      lineageId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YW]" />
+                      externalMetadataColumnId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
+                      lineageId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YW]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
                       dataType="dbDate"
                       name="DATE_ID" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
                       dataType="wstr"
                       length="7"
                       name="DATE_YEAR_MONTH" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
                       dataType="wstr"
                       length="1"
                       name="DATE_WORKDAY_FLAG" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
                       dataType="ui1"
                       name="DATE_DAY_NUM" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
                       dataType="i2"
                       name="DATE_YEAR" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
                       dataType="wstr"
                       length="5"
                       name="DATE_MONTH_NAME" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
                       dataType="wstr"
                       length="2"
                       name="DATE_WEEK_DAY_NAME" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
                       dataType="ui1"
                       name="DATE_WEEK" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
                       dataType="wstr"
                       length="2"
                       name="DATE_DEC" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
                       dataType="wstr"
                       length="2"
                       name="DATE_Q" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
                       dataType="wstr"
                       length="2"
                       name="DATE_HY" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
                       dataType="wstr"
                       length="7"
                       name="DATE_YQ" />
                     <externalMetadataColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
                       dataType="wstr"
                       length="7"
                       name="DATE_YW" />
@@ -927,22 +943,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                  refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Вывод ошибок назначения &quot;OLE DB&quot;"
-                  synchronousInputId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                  synchronousInputId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      lineageId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      refId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      lineageId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -953,15 +969,25 @@
           </components>
           <paths>
             <path
-              refId="Package\Задача потока данных.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
-              endId="Package\Задача потока данных\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+              refId="Package\Load data from csv.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
+              endId="Package\Load data from csv\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
               name="Выход источника &quot;Неструктурированный файл&quot;"
-              startId="Package\Задача потока данных\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;]" />
+              startId="Package\Load data from csv\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2B493AF2-A9DE-4111-BCDF-87E7CACF872F}"
+      DTS:From="Package\Load data from csv"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -973,29 +999,55 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="188.8,41.6"
-          Id="Package\Задача потока данных"
+          Id="Package\Load data from csv"
           TopLeft="49.166664712959,35.5333336157269" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="58.333331015375,128.266667686039" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="142.149997864167,77.1333336157269">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1333340703116"
+              Start="0,0"
+              End="0,43.6333340703116">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6333340703116" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Задача потока данных">
+    design-time-name="Package\Load data from csv">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,41.6"
-          Id="Package\Задача потока данных\CSV_CAL"
+          Id="Package\Load data from csv\CSV_CAL"
           TopLeft="42.4999983112018,15.6000001239777" />
         <NodeLayout
           Size="185.6,41.6"
-          Id="Package\Задача потока данных\Назначение &quot;OLE DB&quot;"
+          Id="Package\Load data from csv\Назначение &quot;OLE DB&quot;"
           TopLeft="29.9999988079071,133.466667727364" />
         <EdgeLayout
-          Id="Package\Задача потока данных.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
+          Id="Package\Load data from csv.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
           TopLeft="110.499998311202,57.2000001239777">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1032,7 +1084,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Задача потока данных\Назначение &quot;OLE DB&quot;">
+    design-time-name="Package\Load data from csv\Назначение &quot;OLE DB&quot;">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
