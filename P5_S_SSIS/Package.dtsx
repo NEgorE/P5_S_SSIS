@@ -11,8 +11,8 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{C5A38640-270C-4903-BDC7-724D829C3018}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{3A8BE9A2-8C65-4DE5-A869-5204E01A69B2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -708,11 +708,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;"
+              refId="Package\CSV_LOAD_DATA\insert into DB"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Назначение &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;4"
               description="Назначение &quot;OLE DB&quot;"
-              name="Назначение &quot;OLE DB&quot;"
+              name="insert into DB"
               usesDispositions="true"
               version="4">
               <properties>
@@ -765,7 +765,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Connections[OleDbConnection]"
+                  refId="Package\CSV_LOAD_DATA\insert into DB.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[SQLSERVER2019]"
                   connectionManagerRefId="Package.ConnectionManagers[SQLSERVER2019]"
                   description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
@@ -773,168 +773,168 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+                  refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;]"
                   errorOrTruncationOperation="Вставить"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Вход назначения &quot;OLE DB&quot;">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]"
                       cachedDataType="wstr"
                       cachedLength="7"
                       cachedName="DATE_YEAR_MONTH"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR_MONTH]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_ID]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_ID]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DATE_ID"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_ID]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]"
                       cachedDataType="wstr"
                       cachedLength="1"
                       cachedName="DATE_WORKDAY_FLAG"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WORKDAY_FLAG]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DATE_DAY_NUM"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DAY_NUM]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YEAR]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YEAR]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DATE_YEAR"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YEAR]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]"
                       cachedDataType="wstr"
                       cachedLength="5"
                       cachedName="DATE_MONTH_NAME"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_MONTH_NAME]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]"
                       cachedDataType="wstr"
                       cachedLength="2"
                       cachedName="DATE_WEEK_DAY_NAME"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK_DAY_NAME]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WEEK]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_WEEK]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DATE_WEEK"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_WEEK]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_DEC]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_DEC]"
                       cachedDataType="wstr"
                       cachedLength="2"
                       cachedName="DATE_DEC"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_DEC]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_Q]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_Q]"
                       cachedDataType="wstr"
                       cachedLength="2"
                       cachedName="DATE_Q"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_Q]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_HY]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_HY]"
                       cachedDataType="wstr"
                       cachedLength="2"
                       cachedName="DATE_HY"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_HY]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YQ]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YQ]"
                       cachedDataType="wstr"
                       cachedLength="7"
                       cachedName="DATE_YQ"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YQ]" />
                     <inputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YW]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].Columns[DATE_YW]"
                       cachedDataType="wstr"
                       cachedLength="7"
                       cachedName="DATE_YW"
-                      externalMetadataColumnId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
+                      externalMetadataColumnId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
                       lineageId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[DATE_YW]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
                       dataType="dbDate"
                       name="DATE_ID" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
                       dataType="wstr"
                       length="7"
                       name="DATE_YEAR_MONTH" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
                       dataType="wstr"
                       length="1"
                       name="DATE_WORKDAY_FLAG" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
                       dataType="ui1"
                       name="DATE_DAY_NUM" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
                       dataType="i2"
                       name="DATE_YEAR" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
                       dataType="wstr"
                       length="5"
                       name="DATE_MONTH_NAME" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
                       dataType="wstr"
                       length="2"
                       name="DATE_WEEK_DAY_NAME" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
                       dataType="ui1"
                       name="DATE_WEEK" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
                       dataType="wstr"
                       length="2"
                       name="DATE_DEC" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
                       dataType="wstr"
                       length="2"
                       name="DATE_Q" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
                       dataType="wstr"
                       length="2"
                       name="DATE_HY" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
                       dataType="wstr"
                       length="7"
                       name="DATE_YQ" />
                     <externalMetadataColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
                       dataType="wstr"
                       length="7"
                       name="DATE_YW" />
@@ -943,22 +943,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
+                  refId="Package\CSV_LOAD_DATA\insert into DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Вывод ошибок назначения &quot;OLE DB&quot;"
-                  synchronousInputId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]">
+                  synchronousInputId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      lineageId="Package\CSV_LOAD_DATA\insert into DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      refId="Package\CSV_LOAD_DATA\insert into DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      lineageId="Package\CSV_LOAD_DATA\insert into DB.Outputs[Вывод ошибок назначения &quot;OLE DB&quot;].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -970,7 +970,7 @@
           <paths>
             <path
               refId="Package\CSV_LOAD_DATA.Paths[Выход источника &quot;Неструктурированный файл&quot;]"
-              endId="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;.Inputs[Вход назначения &quot;OLE DB&quot;]"
+              endId="Package\CSV_LOAD_DATA\insert into DB.Inputs[Вход назначения &quot;OLE DB&quot;]"
               name="Выход источника &quot;Неструктурированный файл&quot;"
               startId="Package\CSV_LOAD_DATA\CSV_CAL.Outputs[Выход источника &quot;Неструктурированный файл&quot;]" />
           </paths>
@@ -1040,7 +1040,7 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="185.6,41.6"
-          Id="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;"
+          Id="Package\CSV_LOAD_DATA\insert into DB"
           TopLeft="29.9999988079071,133.466667727364" />
         <NodeLayout
           Size="136,41.6"
@@ -1084,7 +1084,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\CSV_LOAD_DATA\Назначение &quot;OLE DB&quot;">
+    design-time-name="Package\CSV_LOAD_DATA\insert into DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
