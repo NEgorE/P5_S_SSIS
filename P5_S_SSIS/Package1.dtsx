@@ -1,0 +1,747 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/5/2023 2:12:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-NOR5JCO"
+  DTS:CreatorName="DESKTOP-NOR5JCO\111"
+  DTS:DTSID="{6FBE8E23-BCCD-4065-B9D0-33F391BFA816}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1049"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{FB852AB2-70D1-4E4B-B33B-E790294DAEA4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PoSQL.for_py2]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{EE739DD0-6FA9-42BE-9260-B103583DFD95}"
+      DTS:ObjectName="PoSQL.for_py2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=for_py2;Dsn=PoSQL;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnSH7yXHd0k2gmdM/eYh1lgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAVSgg/kgxvtXWU9m1DX7Yf0R0NCypn4Up3O9AU0R2vzwAAAAAOgAAAAAIAACAAAABGMgeOIGJByPfcGQ9oal/wemq13vQXVZR8i97py4/aJxAAAACGlulMysp+QIe/geOXFUKuQAAAAO1UK7a7gMbhyQv6j10cpGpUsBZMu0m4NVL+DHp3QlWxLmuJg+pRZ/m1BytH2u7gsRs9lK+FpP85jVVEXgnAGYU</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\from MS SQL to PostgerSQL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Задача потока данных"
+      DTS:DTSID="{7BD0022D-881C-436D-9952-19FC39DA317E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="from MS SQL to PostgerSQL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Источник &quot;OLE DB&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;7"
+              description="Источник &quot;OLE DB&quot;"
+              name="Источник &quot;OLE DB&quot;"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Время ожидания команды, в секундах. Величина 0 означает неограниченное время ожидания."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowset">[dbo].[CSV_CAL_COPY]</property>
+                <property
+                  dataType="System.String"
+                  description="Указывает переменную, содержащую имя объекта базы данных, используемого для открытия набора строк."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Команда SQL для выполнения."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Переменная, содержащая команду SQL для выполнения."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает кодовую страницу столбца, используемую, когда недоступны сведения о кодовой странице из источника данных."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Вызывает безусловное использование значение свойства DefaultCodePage при описании символьных данных."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Указывает используемый режим доступа к базе данных."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Сопоставления между параметрами в команде SQL и переменными."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Connections[OleDbConnection]"
+                  connectionManagerID="{BB836A5B-5357-49F0-A582-86E765369B3A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-NOR5JCO_SQLSERVER2019.P5_S_SSIS]"
+                  description="Соединение OLE DB среды выполнения, используемое для доступа к базе данных."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;]"
+                  name="Выход источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_ID]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_ID]"
+                      name="DATE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
+                      length="7"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]"
+                      name="DATE_YEAR_MONTH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
+                      length="1"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]"
+                      name="DATE_WORKDAY_FLAG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]"
+                      name="DATE_DAY_NUM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YEAR]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YEAR]"
+                      name="DATE_YEAR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
+                      length="5"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]"
+                      name="DATE_MONTH_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
+                      length="2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]"
+                      name="DATE_WEEK_DAY_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WEEK]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WEEK]"
+                      name="DATE_WEEK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_DEC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
+                      length="2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_DEC]"
+                      name="DATE_DEC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_Q]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
+                      length="2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_Q]"
+                      name="DATE_Q"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_HY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
+                      length="2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_HY]"
+                      name="DATE_HY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YQ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
+                      length="7"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YQ]"
+                      name="DATE_YQ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YW]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Преобразование"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
+                      length="7"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YW]"
+                      name="DATE_YW"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_ID]"
+                      dataType="dbDate"
+                      name="DATE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR_MONTH]"
+                      dataType="wstr"
+                      length="7"
+                      name="DATE_YEAR_MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_WORKDAY_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      name="DATE_WORKDAY_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_DAY_NUM]"
+                      dataType="ui1"
+                      name="DATE_DAY_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_YEAR]"
+                      dataType="i2"
+                      name="DATE_YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_MONTH_NAME]"
+                      dataType="wstr"
+                      length="5"
+                      name="DATE_MONTH_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK_DAY_NAME]"
+                      dataType="wstr"
+                      length="2"
+                      name="DATE_WEEK_DAY_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_WEEK]"
+                      dataType="ui1"
+                      name="DATE_WEEK" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_DEC]"
+                      dataType="wstr"
+                      length="2"
+                      name="DATE_DEC" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_Q]"
+                      dataType="wstr"
+                      length="2"
+                      name="DATE_Q" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_HY]"
+                      dataType="wstr"
+                      length="2"
+                      name="DATE_HY" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_YQ]"
+                      dataType="wstr"
+                      length="7"
+                      name="DATE_YQ" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].ExternalColumns[DATE_YW]"
+                      dataType="wstr"
+                      length="7"
+                      name="DATE_YW" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;]"
+                  isErrorOut="true"
+                  name="Вывод ошибок источника &quot;OLE DB&quot;">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_ID]"
+                      dataType="dbDate"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_ID]"
+                      name="DATE_ID" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]"
+                      name="DATE_YEAR_MONTH" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]"
+                      name="DATE_WORKDAY_FLAG" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]"
+                      dataType="ui1"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]"
+                      name="DATE_DAY_NUM" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_YEAR]"
+                      dataType="i2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_YEAR]"
+                      name="DATE_YEAR" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]"
+                      name="DATE_MONTH_NAME" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]"
+                      name="DATE_WEEK_DAY_NAME" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_WEEK]"
+                      dataType="ui1"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_WEEK]"
+                      name="DATE_WEEK" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_DEC]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_DEC]"
+                      name="DATE_DEC" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_Q]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_Q]"
+                      name="DATE_Q" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_HY]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_HY]"
+                      name="DATE_HY" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_YQ]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_YQ]"
+                      name="DATE_YQ" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_YW]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[DATE_YW]"
+                      name="DATE_YW" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Вывод ошибок источника &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\from MS SQL to PostgerSQL\Назначение ODBC"
+              componentClassID="Microsoft.SSISODBCDst"
+              contactInfo="Назначение ODBC;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;1"
+              description="Назначение ODBC"
+              name="Назначение ODBC"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Имя таблицы для извлечения данных."
+                  expressionType="Notify"
+                  name="TableName">"dbo"."csv_cal"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Укажите число строк, извлекаемых в одном пакете."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Число строк, вставляемых в одной и той же транзакции."
+                  expressionType="Notify"
+                  name="TransactionSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Определяет размер фрагмента при выделении памяти для столбцов больших объектов"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Int32"
+                  description="Число секунд для ожидания выполнения инструкции SQL перед возвратом в приложение."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Кодовая страница столбца, используемая, когда сведения о кодовой странице недоступны в источнике данных."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Int32"
+                  description="Метод, используемый для вставки данных. Возможные значения: &quot;Пакет&quot; и &quot;Построчно&quot;."
+                  expressionType="Notify"
+                  name="InsertMethod">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Тип данных C в ODBC для привязки числовых данных."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Определяет, как компонент будет привязывать столбцы с типами строк байтовых или многобайтовых символов (SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). Варианты: Юникод (SQL_C_WCHAR) и ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PoSQL.for_py2]"
+                  connectionManagerRefId="Package.ConnectionManagers[PoSQL.for_py2]"
+                  description="Соединение среды выполнения ODBC, используемое для доступа к базе данных."
+                  name="ODBCConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC]"
+                  errorOrTruncationOperation="Вставить"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Вход назначения ODBC"
+                  truncationRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_ID]"
+                      cachedDataType="dbDate"
+                      cachedName="DATE_ID"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_id]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_ID]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_YEAR_MONTH]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="DATE_YEAR_MONTH"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_year_month]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YEAR_MONTH]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_WORKDAY_FLAG]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="DATE_WORKDAY_FLAG"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_workday_flag]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WORKDAY_FLAG]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_DAY_NUM]"
+                      cachedDataType="ui1"
+                      cachedName="DATE_DAY_NUM"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_day_num]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_DAY_NUM]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_YEAR]"
+                      cachedDataType="i2"
+                      cachedName="DATE_YEAR"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_year]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YEAR]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_MONTH_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="DATE_MONTH_NAME"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_month_name]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_MONTH_NAME]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_WEEK_DAY_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DATE_WEEK_DAY_NAME"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_week_day_name]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WEEK_DAY_NAME]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_WEEK]"
+                      cachedDataType="ui1"
+                      cachedName="DATE_WEEK"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_week]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_WEEK]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_DEC]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DATE_DEC"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_dec]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_DEC]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_Q]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DATE_Q"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_q]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_Q]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_HY]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="DATE_HY"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_hy]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_HY]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_YQ]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="DATE_YQ"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_yq]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YQ]" />
+                    <inputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].Columns[DATE_YW]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="DATE_YW"
+                      externalMetadataColumnId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_yw]"
+                      lineageId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;].Columns[DATE_YW]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_id]"
+                      dataType="dbDate"
+                      name="date_id" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_year_month]"
+                      dataType="wstr"
+                      length="7"
+                      name="date_year_month" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_workday_flag]"
+                      dataType="wstr"
+                      length="1"
+                      name="date_workday_flag" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_day_num]"
+                      dataType="i2"
+                      name="date_day_num" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_year]"
+                      dataType="i2"
+                      name="date_year" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_month_name]"
+                      dataType="wstr"
+                      length="5"
+                      name="date_month_name" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_week_day_name]"
+                      dataType="wstr"
+                      length="2"
+                      name="date_week_day_name" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_week]"
+                      dataType="i2"
+                      name="date_week" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_dec]"
+                      dataType="wstr"
+                      length="2"
+                      name="date_dec" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_q]"
+                      dataType="wstr"
+                      length="2"
+                      name="date_q" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_hy]"
+                      dataType="wstr"
+                      length="2"
+                      name="date_hy" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_yq]"
+                      dataType="wstr"
+                      length="7"
+                      name="date_yq" />
+                    <externalMetadataColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC].ExternalColumns[date_yw]"
+                      dataType="wstr"
+                      length="7"
+                      name="date_yw" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Outputs[Ошибка при выводе назначения ODBC]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Ошибка при выводе назначения ODBC"
+                  synchronousInputId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Outputs[Ошибка при выводе назначения ODBC].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Outputs[Ошибка при выводе назначения ODBC].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Outputs[Ошибка при выводе назначения ODBC].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Outputs[Ошибка при выводе назначения ODBC].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\from MS SQL to PostgerSQL.Paths[Выход источника &quot;OLE DB&quot;]"
+              endId="Package\from MS SQL to PostgerSQL\Назначение ODBC.Inputs[Вход назначения ODBC]"
+              name="Выход источника &quot;OLE DB&quot;"
+              startId="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;.Outputs[Выход источника &quot;OLE DB&quot;]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\from MS SQL to PostgerSQL"
+          TopLeft="29.1666655076875,21.6666668388579" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\from MS SQL to PostgerSQL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;"
+          TopLeft="45.8333315120804,24.2666668595208" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\from MS SQL to PostgerSQL\Назначение ODBC"
+          TopLeft="45.8333315120803,143.000001136462" />
+        <EdgeLayout
+          Id="Package\from MS SQL to PostgerSQL.Paths[Выход источника &quot;OLE DB&quot;]"
+          TopLeft="131.23333151208,65.8666668595208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.1333342769411"
+              Start="0,0"
+              End="0,69.6333342769411">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.6333342769411" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\from MS SQL to PostgerSQL\Источник &quot;OLE DB&quot;">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\from MS SQL to PostgerSQL\Назначение ODBC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-NOR5JCO_SQLSERVER2019.P5_S_SSIS"
+  DTS:DTSID="{BB836A5B-5357-49F0-A582-86E765369B3A}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-NOR5JCO\SQLSERVER2019;Initial Catalog=P5_S_SSIS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-P5_S_SSIS-{BB836A5B-5357-49F0-A582-86E765369B3A}DESKTOP-NOR5JCO\SQLSERVER2019.P5_S_SSIS;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
