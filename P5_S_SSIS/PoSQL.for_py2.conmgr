@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PoSQL.for_py2"
+  DTS:DTSID="{FDE49AC1-3A36-400D-A9B2-FD18AB00CF93}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=for_py2;Dsn=PoSQL;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAnSH7yXHd0k2gmdM/eYh1lgAAAAACAAAAAAAQZgAAAAEAACAAAAC0bY95hSwXPd+944hnip9NSOCstUFK0aisz5EIEXT92AAAAAAOgAAAAAIAACAAAAA8Z9zBBFk9q4OdMdAwPa3skHLe2ZgB5neljZLFQbCJZnAAAACMBLc1X6veSDObdOkuTXd41hoXNXoVBROEGeVoxqdYCkXc4Tb+UHlh5n3eOUs6gEpqDALZ9Y/VsYXVrYhgZCaL7Uv12JfkcT9bRrtojRu5RLgIEYXLIs2pmsDMupwWcyqyOm4DmN/6kIqRRgzLviCnQAAAAK1rEOJlrJ/zBfxQ9kYiRSR23nQEnabiyL3kVEMF4Vnpb7irAkGtPIzfuwnaVkHWnKkOV8GjRlrLVVLQdmlQoQI=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
