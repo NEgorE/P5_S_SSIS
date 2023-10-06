@@ -2,13 +2,22 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>P5_S_SSIS</Name>
-    <LastWriteTime>2023-10-05T10:26:42Z</LastWriteTime>
+    <LastWriteTime>2023-10-05T11:24:56Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
+<<<<<<< HEAD
+      <LastWriteTime>2023-10-05T11:10:40Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Package1.dtsx</Name>
+      <LastWriteTime>2023-10-05T11:24:46Z</LastWriteTime>
+=======
       <LastWriteTime>2023-10-05T10:47:40Z</LastWriteTime>
+>>>>>>> 102ee2eed13948a8f9c2b7b94153cc544e9c3207
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
