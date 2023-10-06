@@ -198,6 +198,7 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
+<<<<<<< HEAD
       DTS:refId="Package\Copy DATA"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
